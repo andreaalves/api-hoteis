@@ -14,7 +14,7 @@ class Site(Resource):
 
     def post(self, url):
         if SiteModel.find_site(url):
-            return {"message": "The site '{}' already exists."}, 400 # bad request
+            return {"message": "The site '{}' already exists.".format(url)}, 400 # bad request
         site = SiteModel(url)
         try:
             site.save_site()
